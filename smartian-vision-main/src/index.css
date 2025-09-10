@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Coders Dabha Design System - Indian Restaurant for Developers */
+
+@layer base {
+  :root {
+    /* Core Indian Color Palette */
+    --background: 35 25% 8%;
+    --foreground: 45 15% 95%;
+
+    --card: 35 20% 12%;
+    --card-foreground: 45 15% 95%;
+
+    --popover: 35 20% 12%;
+    --popover-foreground: 45 15% 95%;
+
+    --primary: 25 95% 65%;
+    --primary-foreground: 35 25% 8%;
+
+    --secondary: 138 40% 45%;
+    --secondary-foreground: 45 15% 95%;
+
+    --muted: 35 15% 20%;
+    --muted-foreground: 35 10% 65%;
+
+    --accent: 15 90% 60%;
+    --accent-foreground: 45 15% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 45 15% 95%;
+
+    --border: 35 15% 25%;
+    --input: 35 15% 20%;
+    --ring: 25 95% 65%;
+
+    /* Indian Theme Colors */
+    --saffron: 25 95% 65%;
+    --deep-orange: 15 90% 60%;
+    --forest-green: 138 40% 45%;
+    --turmeric: 45 85% 55%;
+    --cardamom: 120 25% 40%;
+    --paprika: 10 80% 55%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(25, 95%, 65%) 0%, hsl(15, 90%, 60%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(138, 40%, 45%) 0%, hsl(120, 25%, 40%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(45, 85%, 55%) 0%, hsl(25, 95%, 65%) 100%);
+    --gradient-spice: linear-gradient(45deg, hsl(25, 95%, 65%), hsl(15, 90%, 60%), hsl(138, 40%, 45%), hsl(45, 85%, 55%));
+    
+    /* Shadows & Warmth */
+    --shadow-warm: 0 0 20px hsl(25, 95%, 65% / 0.4);
+    --shadow-warm-strong: 0 0 40px hsl(25, 95%, 65% / 0.7);
+    --shadow-spice: 0 0 20px hsl(15, 90%, 60% / 0.4);
+    --shadow-ambient: 0 10px 50px hsl(35, 25%, 8% / 0.8);
+    
+    /* Typography */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+    
+    /* Layout */
+    --radius: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    
+    /* Animations */
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .light {
+    --background: 210 40% 98%;
+    --foreground: 222 84% 2%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 2%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 2%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+  }
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    overflow-x: hidden;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-indian-saffron/50 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-indian-saffron/70;
+  }
+}
+
+@layer components {
+  /* Warm button variants */
+  .btn-warm {
+    @apply relative overflow-hidden rounded-lg font-medium transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--saffron)), hsl(var(--deep-orange)));
+    box-shadow: 0 0 20px hsl(var(--saffron) / 0.3);
+  }
+  
+  .btn-warm:hover {
+    box-shadow: 0 0 30px hsl(var(--saffron) / 0.6);
+    transform: translateY(-2px);
+  }
+  
+  /* Glass morphism effect */
+  .glass {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+  
+  /* Warm border effect */
+  .warm-border {
+    @apply border border-indian-saffron/30 hover:border-indian-saffron/60 transition-colors duration-300;
+    box-shadow: 0 0 10px hsl(var(--saffron) / 0.2);
+  }
+  
+  .warm-border:hover {
+    box-shadow: 0 0 20px hsl(var(--saffron) / 0.4);
+  }
+}
+
+@layer utilities {
+  /* Text gradients */
+  .text-gradient-primary {
+    @apply bg-gradient-primary bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-secondary {
+    @apply bg-gradient-secondary bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-spice {
+    @apply bg-gradient-spice bg-clip-text text-transparent;
+  }
+  
+  /* 3D perspective */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .transform-gpu {
+    transform: translate3d(0, 0, 0);
+  }
+  
+  /* Shimmer effect */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--saffron) / 0.4),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+}
